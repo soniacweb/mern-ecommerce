@@ -5,11 +5,13 @@ Technologies:
 - Node
 - Express
 - React
+- React Bootstrap
+- React Router DOM and React Router Bootstrap
 - Paypal API
 
 ## Overview
 
-ecommerce platform built with the mern stack ad redux. Users can register and sign in, add to cart, add to favourites.
+Ecommerce platform built with the mern stack and redux. Users can register and sign in, add to cart, add to favourites.
 Thre is an admin area for the client to manage products and orders.
 
 ## Features

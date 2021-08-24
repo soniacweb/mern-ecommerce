@@ -1,0 +1,37 @@
+main {
+  min-height: 90vh;
+}
+
+.card {
+  border: none;
+}
+
+.card:hover {
+  border: 2px solid black;
+}
+
+.pricebox {
+  display: flex;
+  justify-content: space-between;
+}
+
+h3 {
+  padding: 1rem 0;
+}
+.rating span {
+  margin: 0.1rem;
+}
+
+.btns {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.socials {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.social {
+  font-size: 25px;
+}
