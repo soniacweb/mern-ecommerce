@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Container, Row, Col, Image, ListGroup, Card, Button } from 'react-bootstrap'
+import { Container, Row, Col, Image, ListGroup, Card, Button, Breadcrumb, Dropdown, DropdownButton } from 'react-bootstrap'
 import Rating from '../components/Rating'
 
 import axios from 'axios'
@@ -24,7 +24,20 @@ const ProductSingle = ({match}) => {
    
 
     return (
+
+        <main>
+        
         <Container>
+                    <Breadcrumb className="my-5">
+                        <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+                        <Breadcrumb.Item href="/api/product">
+                             {product.department}
+                        </Breadcrumb.Item>
+                        <Breadcrumb.Item href="/api/product">
+                             {product.category}
+                        </Breadcrumb.Item>
+                        <Breadcrumb.Item active>{product.name}</Breadcrumb.Item>
+                        </Breadcrumb>
             <Link className="btn btn-dark my-3" to='/'>
                 Go Back
             </Link>
@@ -51,6 +64,41 @@ const ProductSingle = ({match}) => {
                         <ListGroup.Item>
                                 DESCRIPTION: {product.description}
                         </ListGroup.Item>
+
+                            <ListGroup.Item>
+                                <Dropdown>
+                                    <Dropdown.Toggle id="dropdown-button-dark-example1" variant="secondary">
+                                                Select Shoe Size
+                                    </Dropdown.Toggle>
+
+                                    <Dropdown.Menu variant="dark">
+                                    <Dropdown.Item href="#/action-1" active>
+                                        UK 3 - {product.countInStock > 0 ? 'In Stock': 'Out of Stock'}
+                                    </Dropdown.Item>
+                                    <Dropdown.Item href="#/action-2">
+                                        UK 4 - {product.countInStock > 0 ? 'In Stock': 'Out of Stock'}
+                                    </Dropdown.Item>
+                                    <Dropdown.Item href="#/action-3">
+                                        UK 5 - {product.countInStock > 0 ? 'In Stock': 'Out of Stock'}
+                                    </Dropdown.Item>
+                                    <Dropdown.Item href="#/action-3">
+                                        UK 6 - {product.countInStock > 0 ? 'In Stock': 'Out of Stock'}
+                                    </Dropdown.Item>
+                                    <Dropdown.Item href="#/action-3">
+                                        UK 7 - {product.countInStock > 0 ? 'In Stock': 'Out of Stock'}
+                                    </Dropdown.Item>
+                                    <Dropdown.Item href="#/action-3">
+                                        UK 8 - {product.countInStock > 0 ? 'In Stock': 'Out of Stock'}
+                                    </Dropdown.Item>
+                                    <Dropdown.Item href="#/action-3">
+                                        UK 9 - {product.countInStock > 0 ? 'In Stock': 'Out of Stock'}
+                                    </Dropdown.Item>
+                                    <Dropdown.Divider />
+                                    <Dropdown.Item href="#/action-4">More info on sizes?</Dropdown.Item>
+                                    </Dropdown.Menu>
+                                </Dropdown>
+
+                            </ListGroup.Item>
 
                         <ListGroup.Item className="socials">
                                 <i onClick={handleToggle} className={fave ? "social fas fa-heart" : "social far fa-heart"}></i>
@@ -108,6 +156,7 @@ const ProductSingle = ({match}) => {
 
 
         </Container>
+        </main>
     )
 }
 

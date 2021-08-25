@@ -8,6 +8,7 @@ Technologies:
 - React Bootstrap
 - React Router DOM and React Router Bootstrap
 - Paypal API
+- InterCom Chat
 
 ## Overview
 
