@@ -3,6 +3,8 @@ import { LinkContainer } from 'react-router-bootstrap'
 
 import {Navbar, Container, Nav, NavDropdown, Form, FormControl, Button} from 'react-bootstrap'
 
+import Search from '../Pages/Search'
+
 const Header = () => {
     return (
         <header>
@@ -13,7 +15,7 @@ const Header = () => {
                 </LinkContainer>
 
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                {/* <Navbar.Collapse id="basic-navbar-nav"> */}
+                <Navbar.Collapse id="basic-navbar-nav">
 
                 <NavDropdown title="Women's" id="basic-nav-dropdown">
                     <LinkContainer to="/chelseaboots">
@@ -59,31 +61,31 @@ const Header = () => {
 
                 <Form className="d-flex">
 
-                    <FormControl
-                        type="search"
-                        placeholder="SEARCH"
-                        className="mr-2"
-                        aria-label="Search"
-                    />
-                    
-                    </Form> 
+                <FormControl
+                    type="search"
+                    placeholder="SEARCH"
+                    className="mr-2"
+                    aria-label="Search"
+                    // onChange={event => setSearchTerm(event.target.value)}
+                />
 
+                </Form> 
 
                 <Nav className="ml-auto">
                     <LinkContainer to="/favourites">
-                        <Nav.Link> <i className="far fa-heart"></i> Favourites</Nav.Link>
+                        <Nav.Link className="nav-options"> <i className="far fa-heart"></i> Favourites</Nav.Link>
                     </LinkContainer>
 
                     <LinkContainer to="/cart">
-                        <Nav.Link> <i className="fas fa-shopping-cart"></i> Cart</Nav.Link>
+                        <Nav.Link className="nav-options"> <i className="fas fa-shopping-cart"></i> Cart</Nav.Link>
                     </LinkContainer>
 
                     <LinkContainer to="/login">
-                        <Nav.Link> <i className="far fa-user"></i> Sign In</Nav.Link>
+                        <Nav.Link className="nav-options"> <i className="far fa-user"></i> Sign In</Nav.Link>
                     </LinkContainer>                
 
                 </Nav>
-                {/* </Navbar.Collapse> */}
+                </Navbar.Collapse>
             </Container>
             </Navbar>
         </header>

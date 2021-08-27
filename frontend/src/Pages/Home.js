@@ -14,9 +14,8 @@ const Home = () => {
     const [products, setProducts] = useState([])
 
     useEffect(()=> {
-        console.log('hello')
         const fetchData = async () => {
-            const { data } = await axios.get('/api/products')
+            const { data } = await axios.get('/api/bestsellers')
             setProducts(data)
         }
         fetchData()
@@ -37,8 +36,7 @@ const Home = () => {
                  <Row>
                 {products.map((product) =>(
                     <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
-                    {/* <h3>{product.name}</h3> */}
-                    {/* <img src={product.image} /> */}
+                    
                     <Product product={product} />
                     </Col>
                     

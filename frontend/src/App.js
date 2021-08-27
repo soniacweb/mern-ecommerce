@@ -1,12 +1,12 @@
 import React from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import { Container } from 'react-bootstrap'
 import Header from './components/Header.js'
 import Footer from './components/Footer.js'
 import Help from './components/Help.js'
 
 import Home from './Pages/Home'
-import ProductSingle from './Pages/ProductSingle'
+import ProductSingle from './Pages/BestSellersSingle'
+import BestSellersSingle from './Pages/ProductSingle'
 
 
 const App = () => {
@@ -17,6 +17,8 @@ const App = () => {
       <Header />
  
        <Route path='/product/:id' component={ProductSingle} />
+       <Route path='/bestsellers/:id' component={BestSellersSingle} />
+
        <Route path='/' component={Home} exact  />
        <Route path='/deliveryinfo' component={Help} exact  />
 

@@ -6,7 +6,7 @@ import Rating from '../components/Rating'
 import axios from 'axios'
 
 
-const BestSellersSingle = ({match}) => {
+const ProductSingle = ({match}) => {
     const [ fave, setFave ] = useState(false) 
     const [ product, setProduct ] = useState({}) 
 
@@ -16,7 +16,7 @@ const BestSellersSingle = ({match}) => {
 
     useEffect(()=> {
         const fetchData = async () => {
-            const { data } = await axios.get(`/api/products/${match.params.id}`)
+            const { data } = await axios.get(`/api/bestsellers/${match.params.id}`)
             setProduct(data)
             console.log(data)
         }
@@ -161,4 +161,4 @@ const BestSellersSingle = ({match}) => {
     )
 }
 
-export default BestSellersSingle
+export default ProductSingle
