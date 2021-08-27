@@ -1,11 +1,20 @@
-import React from 'react'
+
+import React, { useState } from 'react'
+
 import { LinkContainer } from 'react-router-bootstrap'
 
-import {Navbar, Container, Nav, NavDropdown, Form, FormControl, Button} from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
-import Search from '../Pages/Search'
+// import { Switch, Redirect } from 'react-router-dom'
+
+import {Navbar, Container, Nav, NavDropdown, Form, FormControl} from 'react-bootstrap'
+
+// import Search from '../Pages/Search'
 
 const Header = () => {
+    // const [redirect, setRedirect] = useState(false)
+
+  
     return (
         <header>
             <Navbar bg="light" expand="lg" collapseOnSelect>
@@ -58,19 +67,21 @@ const Header = () => {
                     <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
                 </NavDropdown>
 
-
+                {/* <Switch> */}
                 <Form className="d-flex">
 
                 <FormControl
+                    action="/search"
+                    method="GET"
                     type="search"
                     placeholder="SEARCH"
                     className="mr-2"
                     aria-label="Search"
-                    // onChange={event => setSearchTerm(event.target.value)}
+                    // onChange={() => setRedirect(true)}
                 />
 
                 </Form> 
-
+                {/* </Switch> */}
                 <Nav className="ml-auto">
                     <LinkContainer to="/favourites">
                         <Nav.Link className="nav-options"> <i className="far fa-heart"></i> Favourites</Nav.Link>

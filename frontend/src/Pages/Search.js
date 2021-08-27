@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col, FormControl } from 'react-bootstrap'
 
 import Product from '../components/Product'
 
@@ -7,6 +7,7 @@ import axios from 'axios'
 
 const Search = () => {
     const [searchResults, setSearchResults] = useState([])
+    const [searchTerm, setSearchTerm] = useState('')
 
     useEffect(()=> {
         const fetchData = async () => {
@@ -18,13 +19,22 @@ const Search = () => {
 
     return (
         <Container>
-                 <h1>Best Sellers</h1>
-
+                 <h1 className="my-3">Search Results</h1>
+                 <FormControl
+                    action="/searchresults"
+                    method="GET"
+                    
+                    type="search"
+                    placeholder="SEARCH"
+                    className="mr-2 my-5"
+                    aria-label="Search"
+                    onChange={event => setSearchTerm(event.target.value)}
+                />
                  <Row>
                 {searchResults.filter(value => {
                       if (searchResults === "") {
-                        return value
-                    } else if (value.name.toLowerCase().includes(searchResults.toLowerCase())) {
+                        return 'value'
+                    } else if (value.name.toLowerCase().includes(searchTerm.toLowerCase())) {
                         return value
                     }
                     
