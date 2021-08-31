@@ -13,7 +13,7 @@ Technologies:
 ## Overview
 
 Ecommerce platform built with the mern stack and redux. Users can register and sign in, add to cart, add to favourites.
-There is alo an admin area for the client to manage products and orders.
+There is also an admin area for the client to manage products and orders.
 
 ## Features
 
