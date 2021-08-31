@@ -1,29 +1,44 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { Link } from 'react-router-dom'
-import { Container, Row, Col, Image, ListGroup, Card, Button, Breadcrumb, Dropdown } from 'react-bootstrap'
+import { Container, Row, Col, Image, ListGroup, Card, Button, Breadcrumb, Dropdown, ListGroupItem, Form, Tabs, Tab, Table } from 'react-bootstrap'
 import Rating from '../components/Rating'
+import { useDispatch, useSelector } from 'react-redux'
+import { listProductDetails } from '../actions/productActions'
 
-import axios from 'axios'
+import Message from '../components/Message.js'
+import Loader from '../components/Loader.js'
 
 
-const ProductSingle = ({match}) => {
+const BestSellersSingle = ({ history, match }) => {
     const [ fave, setFave ] = useState(false) 
-    const [ product, setProduct ] = useState({}) 
+    const [ qty, setQty ] = useState(1) 
+    const dispatch = useDispatch()
 
-    const handleToggle =() => {
-        setFave(!fave);
-    }
+    const productDetails = useSelector((state) => state.productDetails)
+
+    const { loading, error, product } = productDetails
+
 
     useEffect(()=> {
-        const fetchData = async () => {
-            const { data } = await axios.get(`/api/bestsellers/${match.params.id}`)
-            setProduct(data)
-            console.log(data)
-        }
-        fetchData()
-    }, [match])
+       dispatch(listProductDetails(match.params.id))
+
+    
+    }, [dispatch, match])
    
 
+    const addToCart = () => {
+        history.push(`/cart/${match.params.id}?qty=${qty}`)
+    }
+
+    // need set timeout to show class change
+    const handleToggle = (e) => {
+        setFave(!fave);
+        if (e.target.className === 'social far fa-heart') {
+        history.push(`/favourites/${match.params.id}?qty=${qty}`)
+        }
+    }
+
+   
     return (
 
         <main>
@@ -39,9 +54,12 @@ const ProductSingle = ({match}) => {
                         </Breadcrumb.Item>
                         <Breadcrumb.Item active>{product.name}</Breadcrumb.Item>
                         </Breadcrumb>
-            <Link className="btn btn-dark my-3" to='/'>
-                Go Back
-            </Link>
+                <Link className="btn btn-dark my-3" to='/'>
+                    Go Back
+                </Link>
+
+            {
+                loading ? <Loader /> : error ? <Message>{error}</Message> : 
 
            <Row>
                <Col md={6}>
@@ -136,14 +154,33 @@ const ProductSingle = ({match}) => {
                            </Row>
                        </ListGroup.Item>
 
-
+                        { product.countInStock > 0 && (
+                            <ListGroupItem>
+                                <Row>
+                                    <Col>Qty</Col>
+                                    <Col>
+                                    <Form.Control as="select" value={qty} onChange={e => setQty(e.target.value)}>
+                                        {
+                                            [...Array(product.countInStock).keys()].map(x => (
+                                                <option key={x+1} value={x+1}>{x+1}</option>
+                                            )
+                                        )}
+                                    </Form.Control>
+                                    </Col>
+                                </Row>
+                            </ListGroupItem>
+                          )}
                        <ListGroup.Item className="btns">
-                       {/* <Row>
-                       <Col> */}
-                            <Button className="btn-block" type="btn" disabled={product.countInStock === 0}>ADD TO CART</Button>                       
-                       {/* </Col>
-                        
-                         <Col> */}
+                    
+                            <Button 
+                            onClick={addToCart}
+                            className="btn-block" 
+                            type="btn" 
+                            disabled={product.countInStock === 0}
+                            >
+                                ADD TO CART
+                            </Button>                       
+                    
                             <Button className="btn-block" type="btn" disabled={product.countInStock === 0}>COLLECT</Button>
                         {/* </Col>
                             </Row> */}
@@ -152,13 +189,80 @@ const ProductSingle = ({match}) => {
 
                        </ListGroup>
                    </Card>
-               </Col>      
+               </Col>     
+
+               <Col>
+               <Card>
+                   <ListGroupItem className="my-3">
+                       <ListGroup>
+                       <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example" className="mb-3">
+                            <Tab eventKey="home" title="Product Information">
+
+                                {product.description}
+                                
+                                <ul className="my-3 productInfo">
+                                    <li><span>UPPER: </span>Leather</li>
+                                    <li><span>LINING: </span>Fabric</li>
+                                    <li><span>OUTSOLE: </span>Rubber</li>
+                                    <li><span>Colour: </span>Black</li>
+                                    <li><span>Product </span>Code: 1439067020</li>
+
+                                </ul>
+
+                            </Tab>
+                            <Tab eventKey="profile" title="Delivery & Returns">
+                            
+                            <Card style={{ width: '40rem' }}>
+                                <Col>
+                                <Row>
+                                    <ListGroup variant="flush">
+                                        <ListGroup.Item className="deliveryTitle">UK Standard - £3</ListGroup.Item>
+                                        <ListGroup.Item>Delivery between:</ListGroup.Item>
+                                        <ListGroup.Item>Monday, 23 August 2021 - Thursday, 26 August 2021</ListGroup.Item>
+                                    </ListGroup>
+                                </Row>       
+                                </Col>
+                                </Card>
+
+                                <Card style={{ width: '40rem' }}>
+                                <Col>
+                                <Row>
+                                    <ListGroup variant="flush">
+                                        <ListGroup.Item className="deliveryTitle">Next Day - £4.99</ListGroup.Item>
+                                        <ListGroup.Item>Delivery within 24 hours or order confirmation</ListGroup.Item>
+                                        <ListGroup.Item>Get your shoes the next working day!</ListGroup.Item>
+                                    </ListGroup>
+                                </Row>       
+                                </Col>
+                                </Card>
+
+                                <Card style={{ width: '40rem' }}>
+                                <Col>
+                                <Row>
+                                    <ListGroup variant="flush">
+                                        <ListGroup.Item className="deliveryTitle">Choose Your Day - £6</ListGroup.Item>
+                                        <ListGroup.Item>Choose a day to suit you - 7 days a week</ListGroup.Item>
+                                    </ListGroup>
+                                </Row>       
+                                </Col>
+                                </Card>
+
+                            </Tab>
+                            <Tab eventKey="contact" title="Reviews">
+                            <h3> Reviews </h3>
+
+                            </Tab>
+                            </Tabs> 
+                       </ListGroup>
+                   </ListGroupItem>
+               </Card>
+               </Col> 
             </Row>
 
-
+      }
         </Container>
         </main>
     )
 }
 
-export default ProductSingle
+export default BestSellersSingle

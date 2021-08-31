@@ -3,7 +3,7 @@ import mongoose from 'mongoose'
 
 const favouritesSchema = mongoose.Schema({
     user: {
-        type: mongoose.Schema.Types.object.ObjectId, // specific user favourating
+        type: mongoose.Schema.Types.ObjectId, // specific user favourating
         required: true,
         ref: 'User'
     },

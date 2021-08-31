@@ -3,7 +3,7 @@ import mongoose from 'mongoose'
 
 const orderSchema = mongoose.Schema({
     user: {
-        type: mongoose.Schema.Types.object.ObjectId, // specific user placing the order
+        type: mongoose.Schema.Types.ObjectId, // specific user placing the order
         required: true,
         ref: 'User'
     },
@@ -42,7 +42,6 @@ const orderSchema = mongoose.Schema({
         status: {type: String},
         update_time: {type: String},
         email_address: {type: String},
-        required: true,
     },
     vat: {
         type: Number,

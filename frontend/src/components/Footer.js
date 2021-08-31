@@ -23,7 +23,7 @@ const Footer = () => {
                                <Link className="delinfo footer-p" to="deliveryinfo">Delivery Info</Link>
                             </ListGroup.Item>
                             <ListGroup.Item className="footer-links">
-                               <p className="footer-p">Returns Policy</p>
+                               <p className="footer-p">Returns</p>
                             </ListGroup.Item>   
                         </ListGroup>
                     </Col>

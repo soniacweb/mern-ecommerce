@@ -20,7 +20,7 @@ const reviewSchema = mongoose.Schema({
 
 const productSchema = mongoose.Schema({
     user: {
-        type: mongoose.Schema.Types.object.ObjectId, // only an admin can add products
+        type: mongoose.Schema.Types.ObjectId, // only an admin can add products
         required: true,
         ref: 'User'
     },

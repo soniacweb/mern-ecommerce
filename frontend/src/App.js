@@ -6,25 +6,30 @@ import Help from './components/Help.js'
 
 import Search from './Pages/Search'
 import Home from './Pages/Home'
-import ProductSingle from './Pages/BestSellersSingle'
-import BestSellersSingle from './Pages/ProductSingle'
+import BestSellersSingle from './Pages/BestSellersSingle'
+import ProductSingle from './Pages/ProductSingle'
+import Cart from './Pages/Cart'
+import Favourites from './Pages/Favourites'
 
 
 const App = () => {
   return (
-
+ 
     <Router>
 
       <Header />
  
-       <Route path='/product/:id' component={ProductSingle} />
        <Route path='/bestsellers/:id' component={BestSellersSingle} />
+       <Route path='/product/:id' component={ProductSingle} />
+       <Route path='/cart/:id?' component={Cart} />
+       <Route path='/favourites/:id?' component={Favourites} />
 
        <Route path='/search' component={Search} />
 
        <Route path='/' component={Home} exact  />
        <Route path='/deliveryinfo' component={Help} exact  />
 
+     
     <Footer />
 
     </Router>

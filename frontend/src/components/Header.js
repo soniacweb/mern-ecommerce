@@ -1,9 +1,7 @@
 
-import React, { useState } from 'react'
-
+import React from 'react'
 import { LinkContainer } from 'react-router-bootstrap'
 
-import { Link } from 'react-router-dom'
 
 // import { Switch, Redirect } from 'react-router-dom'
 
@@ -11,9 +9,10 @@ import {Navbar, Container, Nav, NavDropdown, Form, FormControl} from 'react-boot
 
 // import Search from '../Pages/Search'
 
-const Header = () => {
-    // const [redirect, setRedirect] = useState(false)
-
+const Header = ({history}) => {
+    const redirect = () => {
+        history.push('/search')
+      }
   
     return (
         <header>
@@ -77,9 +76,9 @@ const Header = () => {
                     placeholder="SEARCH"
                     className="mr-2"
                     aria-label="Search"
-                    // onChange={() => setRedirect(true)}
+                    onChange={() => redirect}
                 />
-
+                    
                 </Form> 
                 {/* </Switch> */}
                 <Nav className="ml-auto">

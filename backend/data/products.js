@@ -1,10 +1,8 @@
 const products = [
   {
-    _id: '1',
     name: 'Lorem ipsum dolor',
-    image: 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80',
-    description:
-      'Bluetooth technology lets you connect it with compatible devices wirelessly High-quality AAC audio offers immersive listening experience Built-in microphone allows you to take calls while working',
+    image: 'https://i.imgur.com/y25ghfY.jpg',
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam',
     brand: 'Apple',
     category: 'Sandals',
     department: 'Womens',
@@ -14,11 +12,9 @@ const products = [
     numReviews: 12,
   },
   {
-    _id: '2',
     name: 'Lorem',
     image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2250&q=80',
-    description:
-      'Introducing the iPhone 11 Pro. A transformative triple-camera system that adds tons of capability without complexity. An unprecedented leap in battery life',
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam',
     brand: 'Apple',
     category: 'Sandals',
     department: 'Mens',
@@ -28,11 +24,9 @@ const products = [
     numReviews: 8,
   },
   {
-    _id: '3',
     name: 'Ipsum',
     image: 'https://images.unsplash.com/flagged/photo-1556637640-2c80d3201be8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2250&q=80',
-    description:
-      'Characterized by versatile imaging specs, the Canon EOS 80D further clarifies itself using a pair of robust focusing systems and an intuitive design',
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam',
     brand: 'Cannon',
     category: 'Sandals',
     department: 'Kids',
@@ -42,12 +36,10 @@ const products = [
     numReviews: 12,
   },
   {
-    _id: '4',
     name: 'Dolor sit amet',
     image: 'https://images.unsplash.com/photo-1457647239067-15a2a76c724e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2250&q=80',
-    description:
-      'The ultimate home entertainment center starts with PlayStation. Whether you are into gaming, HD movies, television, music',
-    brand: 'Sony',
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam',
+    brand: 'New Balance',
     category: 'Sandals',
     department: 'Womens',
     price: 399.99,
@@ -56,12 +48,10 @@ const products = [
     numReviews: 12,
   },
   {
-    _id: '5',
     name: 'Lorem ipsum 3',
     image: 'https://images.unsplash.com/photo-1618274158630-bc47a614b3a5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80',
-    description:
-      'Get a better handle on your games with this Logitech LIGHTSYNC gaming mouse. The six programmable buttons allow customization for a smooth playing experience',
-    brand: 'Logitech',
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam',
+    brand: 'Gucci',
     category: 'Chelsea Boots',
     department: 'Womens',
     price: 49.99,
@@ -70,12 +60,10 @@ const products = [
     numReviews: 10,
   },
   {
-    _id: '6',
     name: 'Ipsum dolor',
     image: 'https://images.unsplash.com/photo-1585488434451-7ee645d0574b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=934&q=80',
-    description:
-      'Meet Echo Dot - Our most popular smart speaker with a fabric design. It is our most compact smart speaker that fits perfectly into small space',
-    brand: 'Amazon',
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam',
+    brand: 'Fila',
     category: 'Trainers',
     department: 'Mens',
     price: 29.99,
@@ -84,12 +72,10 @@ const products = [
     numReviews: 12,
   },
   {
-    _id: '7',
     name: 'Lorem ipsum dolor sit amet',
     image: 'https://images.unsplash.com/photo-1560343090-f0409e92791a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1300&q=80',
-    description:
-      'Meet Echo Dot - Our most popular smart speaker with a fabric design. It is our most compact smart speaker that fits perfectly into small space',
-    brand: 'Amazon',
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam',
+    brand: 'Nike',
     category: 'Trainers',
     department: 'Mens',
     price: 29.99,
@@ -98,12 +84,10 @@ const products = [
     numReviews: 12,
   },
   {
-    _id: '8',
     name: 'Lorem ipsum dolor sit amet',
     image: 'https://images.unsplash.com/photo-1499013819532-e4ff41b00669?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1400&q=80',
-    description:
-      'Meet Echo Dot - Our most popular smart speaker with a fabric design. It is our most compact smart speaker that fits perfectly into small space',
-    brand: 'Amazon',
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam',
+    brand: 'Adidas',
     category: 'Trainers',
     department: 'Mens',
     price: 29.99,
@@ -112,12 +96,10 @@ const products = [
     numReviews: 12,
   },
   {
-    _id: '9',
     name: 'Lorem ipsum dolor sit amet',
     image: 'https://images.unsplash.com/photo-1605733160314-4fc7dac4bb16?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2268&q=80',
-    description:
-      'Meet Echo Dot - Our most popular smart speaker with a fabric design. It is our most compact smart speaker that fits perfectly into small space',
-    brand: 'Amazon',
+    description: 'Maxime mollitia molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam',
+    brand: 'Burberry',
     category: 'Trainers',
     department: 'Mens',
     price: 29.99,
@@ -126,12 +108,10 @@ const products = [
     numReviews: 12,
   },
   {
-    _id: '10',
     name: 'Lorem ipsum dolor sit amet',
     image: 'https://images.unsplash.com/photo-1551111293-20c9c0ae923c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2255&q=80',
-    description:
-      'Meet Echo Dot - Our most popular smart speaker with a fabric design. It is our most compact smart speaker that fits perfectly into small space',
-    brand: 'Amazon',
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam',
+    brand: 'ASICS',
     category: 'Trainers',
     department: 'Mens',
     price: 29.99,
@@ -140,12 +120,10 @@ const products = [
     numReviews: 12,
   },
   {
-    _id: '11',
     name: 'Lorem ipsum dolor sit amet',
     image: 'https://images.unsplash.com/photo-1605732440685-d0654d81aa30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2250&q=80',
-    description:
-      'Meet Echo Dot - Our most popular smart speaker with a fabric design. It is our most compact smart speaker that fits perfectly into small space',
-    brand: 'Amazon',
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam',
+    brand: 'New London',
     category: 'Trainers',
     department: 'Mens',
     price: 29.99,
@@ -154,12 +132,10 @@ const products = [
     numReviews: 12,
   },
   {
-    _id: '12',
     name: 'Lorem ipsum dolor sit amet',
     image: 'https://images.unsplash.com/photo-1605733513549-de9b150bd70d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80',
-    description:
-      'Meet Echo Dot - Our most popular smart speaker with a fabric design. It is our most compact smart speaker that fits perfectly into small space',
-    brand: 'Amazon',
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam',
+    brand: 'XYZ',
     category: 'Trainers',
     department: 'Mens',
     price: 29.99,

@@ -13,7 +13,7 @@ Technologies:
 ## Overview
 
 Ecommerce platform built with the mern stack and redux. Users can register and sign in, add to cart, add to favourites.
-Thre is an admin area for the client to manage products and orders.
+There is alo an admin area for the client to manage products and orders.
 
 ## Features
 
@@ -34,3 +34,4 @@ Database seeder (products & users)
 # Frontend - Create React App
 
 - npm start to start frontend dev server.
+- npm run dev to run backend and frontend concurrently

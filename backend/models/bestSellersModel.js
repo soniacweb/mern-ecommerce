@@ -20,7 +20,7 @@ const reviewSchema = mongoose.Schema({
 
 const bestSellersSchema = mongoose.Schema({
     user: {
-        type: mongoose.Schema.Types.object.ObjectId, // only an admin can add bestsellers
+        type: mongoose.Schema.Types.ObjectId, // only an admin can add bestsellers
         required: true,
         ref: 'User'
     },

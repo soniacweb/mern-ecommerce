@@ -6,13 +6,18 @@ main {
   border: none;
 }
 
-.card:hover {
+/* .card:hover {
   border: 2px solid black;
-}
+} */
 
 .pricebox {
   display: flex;
   justify-content: space-between;
+}
+
+h1 {
+  font-size: 1.4rem;
+  /* padding: 0.1rem; */
 }
 
 h3 {
@@ -20,6 +25,10 @@ h3 {
 }
 .rating span {
   margin: 0.1rem;
+}
+
+.productInfo {
+  list-style-type: none;
 }
 
 .btns {
@@ -60,6 +69,9 @@ h3 {
   object-fit: cover;
 }
 
+/* .cardImg {
+  height: 750px;
+} */
 .footer-links,
 footer {
   background-color: black;
@@ -113,6 +125,15 @@ hr {
 .mobile-social {
   display: none;
 }
+
+.deliveryTitle,
+span {
+  font-weight: 900;
+}
+
+/* .basket {
+  height: 80vh;
+} */
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
   .footer-title {
     margin: 20px 0;

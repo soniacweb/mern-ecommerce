@@ -22,8 +22,7 @@ const Search = () => {
                  <h1 className="my-3">Search Results</h1>
                  <FormControl
                     action="/searchresults"
-                    method="GET"
-                    
+                    method="GET" 
                     type="search"
                     placeholder="SEARCH"
                     className="mr-2 my-5"
