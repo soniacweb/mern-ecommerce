@@ -1,5 +1,6 @@
 import mongoose from 'mongoose'
 // import { string } from 'yargs'
+import bcrypt from 'bcryptjs'
 
 const userSchema = mongoose.Schema({
     name: {
@@ -23,6 +24,20 @@ const userSchema = mongoose.Schema({
   
 }, {
      timestamps: true
+})
+
+// MIDDLEWARE
+userSchema.methods.matchPassword = async function(enteredPassword) {
+    return await bcrypt.compare(enteredPassword, this.password) // comparing the bcrypt password with the entered password
+}
+
+// encrupting password after registering
+userSchema.pre('save', async function(next) { 
+    if (!this.isModified('password')) { //mongoose checking for any profile modifications/updates 
+        next()
+    }
+     const salt = await bcrypt.genSalt(10)
+     this.password = await bcrypt.hash(this.password, salt)
 })
 
 const User = mongoose.model('User', userSchema)

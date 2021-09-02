@@ -14,6 +14,11 @@ const reviewSchema = mongoose.Schema({
         type: String,
         required: true,
     },
+    user: {
+        type: mongoose.Schema.Types.ObjectId, // only an admin can add products
+        required: true,
+        ref: 'User'
+    },
 }, {
     timestamps: true
 })

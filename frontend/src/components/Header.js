@@ -1,19 +1,25 @@
 
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { LinkContainer } from 'react-router-bootstrap'
-
-
-// import { Switch, Redirect } from 'react-router-dom'
-
-import {Navbar, Container, Nav, NavDropdown, Form, FormControl} from 'react-bootstrap'
-
+import { Navbar, Container, Nav, NavDropdown, Form, FormControl} from 'react-bootstrap'
+import { logout } from '../actions/userActions'
 // import Search from '../Pages/Search'
 
-const Header = ({history}) => {
-    const redirect = () => {
-        history.push('/search')
-      }
+const Header = () => {
+    const dispatch = useDispatch()
+    
+    const userLogin = useSelector(state => state.userLogin) // bringing in redux state from login page
+    const { userInfo } = userLogin
+    
+    // const redirect = () => {
+    //     history.push('/search')
+    //   }
   
+      const logoutHandler = () => {
+        dispatch(logout())
+      }
+
     return (
         <header>
             <Navbar bg="light" expand="lg" collapseOnSelect>
@@ -76,7 +82,7 @@ const Header = ({history}) => {
                     placeholder="SEARCH"
                     className="mr-2"
                     aria-label="Search"
-                    onChange={() => redirect}
+                    // onChange={() => redirect}
                 />
                     
                 </Form> 
@@ -90,16 +96,42 @@ const Header = ({history}) => {
                         <Nav.Link className="nav-options"> <i className="fas fa-shopping-cart"></i> Cart</Nav.Link>
                     </LinkContainer>
 
-                    <LinkContainer to="/login">
-                        <Nav.Link className="nav-options"> <i className="far fa-user"></i> Sign In</Nav.Link>
-                    </LinkContainer>                
+                    {userInfo ? (
+                        <NavDropdown title={`Hey, ${userInfo.name}!`} id='username'>
+                          <LinkContainer to='/profile'>
+                            <NavDropdown.Item>Profile</NavDropdown.Item>
+                          </LinkContainer>
+                          <NavDropdown.Item onClick={logoutHandler}>
+                            Logout
+                          </NavDropdown.Item>
+                        </NavDropdown>
+                      ) : (
+                        <LinkContainer to='/login'>
+                          <Nav.Link>
+                            <i className='fas fa-user'></i> Sign In
+                          </Nav.Link>
+                        </LinkContainer>
+                      )}
 
+                      {userInfo && userInfo.isAdmin && (
+                        <NavDropdown title='Admin' id='adminmenu'>
+                          <LinkContainer to='/admin/userlist'>
+                            <NavDropdown.Item>Users</NavDropdown.Item>
+                          </LinkContainer>
+                          <LinkContainer to='/admin/productlist'>
+                            <NavDropdown.Item>Products</NavDropdown.Item>
+                          </LinkContainer>
+                          <LinkContainer to='/admin/orderlist'>
+                            <NavDropdown.Item>Orders</NavDropdown.Item>
+                          </LinkContainer>
+                        </NavDropdown>
+                      )}
                 </Nav>
-                </Navbar.Collapse>
+              </Navbar.Collapse>
             </Container>
-            </Navbar>
+          </Navbar>
         </header>
-    )
-}
+      )
+    }
 
 export default Header

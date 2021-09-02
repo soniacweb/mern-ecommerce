@@ -16,7 +16,7 @@ export const addToFaves = (id, qty) => async(dispatch, getState) => {
             qty 
         }
     })
-    localStorage.setItem('faveItems', JSON.stringify(getState().faves.faveItems))
+    localStorage.setItem('faveItems', JSON.stringify(getState().fave.faveItems))
 }
 
 export const removeFromFaves = (id) => (dispatch, getState) => {
@@ -25,5 +25,5 @@ export const removeFromFaves = (id) => (dispatch, getState) => {
       payload: id,
     })
   
-    localStorage.setItem('faveItems', JSON.stringify(getState().faves.cartItems))
+    localStorage.setItem('faveItems', JSON.stringify(getState().fave.cartItems))
   }

@@ -8,8 +8,8 @@ import { addToFaves, removeFromFaves } from '../actions/favesActions'
 const Favourites = ({ match, location, history}) => {
     const productId = match.params.id
     const dispatch = useDispatch()
-    const faves = useSelector((state) => state.faves) // using useselector hook to get items from the state
-    const { faveItems } = faves
+    const fave = useSelector((state) => state.fave) // using useselector hook to get items from the state
+    const { faveItems } = fave
 
     useEffect(() => {
         if (productId) {
@@ -26,11 +26,11 @@ const Favourites = ({ match, location, history}) => {
       }
     
     return (
-        <Container className="basket"> 
+        <Container className="basket my-5"> 
          <h1 className="my-5">Faves List</h1>
          <Link className="btn btn-dark my-3" to='/'>Continue Shopping</Link>
 
-        <Row className="my-4">
+        <Row className="">
         <Col md={8}>
           {faveItems.length === 0 ? (
             <Message>
@@ -48,8 +48,8 @@ const Favourites = ({ match, location, history}) => {
                       <Link to={`/product/${item.product}`}>{item.name}</Link>
                     </Col>
                     <Col md={2}>£{item.price}</Col>
-                    <Col md={2}>
-                      <Form.Control
+                    {/* <Col md={2}> */}
+                      {/* <Form.Control
                         as='select'
                         value={item.qty}
                         onChange={(e) =>
@@ -63,15 +63,16 @@ const Favourites = ({ match, location, history}) => {
                             {x + 1}
                           </option>
                         ))}
-                      </Form.Control>
-                    </Col>
+                      </Form.Control> */}
+                    {/* </Col> */}
                     <Col md={2}>
                       <Button
                         type='button'
                         variant='light'
                         onClick={() => removeFromCartHandler(item.product)}
                       >
-                        <i className='fas far-heart'></i>
+                      <i class="fas fa-heart"></i>                      
+
                       </Button>
                     </Col>
                   </Row>
